@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Marchall Kevin Tambunan</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <meta name="theme-color" content="#2563eb">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="p-6 bg-white shadow">
+    <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-6">
+      <img src="kevin.jpg" alt="Foto Marchall Kevin Tambunan" class="w-24 h-36 object-cover rounded shadow-md">
+      <div class="text-center md:text-left mt-4 md:mt-0">
+        <h1 class="text-4xl font-bold">Marchall Kevin Tambunan</h1>
+        <p class="text-xl text-gray-600">Profesi / Jabatan</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-4">
+          <a href="#" class="text-blue-500">LinkedIn</a>
+          <a href="#" class="text-gray-700">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="p-6 max-w-4xl mx-auto bg-white my-6 rounded shadow">
+    <h2 class="text-2xl font-semibold mb-4">Tentang Saya</h2>
+    <p>Saya adalah seorang mahasiswa yang sedang menempuh pendidikan S1. Saya memiliki keahlian di bidang cyber, pemrograman, dan juga di bidang olahraga.</p>
+    <button onclick="tampilkanPesan()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Tampilkan Pesan</button>
+  </section>
+
+  <section class="p-6 max-w-4xl mx-auto bg-white my-6 rounded shadow">
+    <h2 class="text-2xl font-semibold mb-4">Pendidikan</h2>
+    <ul class="list-disc list-inside">
+      <li><strong>Universitas Teknologi Digital Indonesia</strong> – Jurusan Informatika (Tahun Masuk: 2022)</li>
+    </ul>
+  </section>
+
+  <section class="p-6 max-w-4xl mx-auto bg-white my-6 rounded shadow">
+    <h2 class="text-2xl font-semibold mb-4">Pengalaman Kerja</h2>
+    <ul class="list-disc list-inside">
+      <li><strong>PT. Cabang</strong> – Posisi: Pegawai (Tahun 2022)</li>
+    </ul>
+  </section>
+
+  <section class="p-6 max-w-4xl mx-auto bg-white my-6 rounded shadow">
+    <h2 class="text-2xl font-semibold mb-4">Proyek</h2>
+    <ul class="list-disc list-inside">
+      <li><strong>Membangun Aplikasi Penjadwalan & Penyimpanan Data Warga</strong> – 
+        <a href="https://github.com/Marchall-KevinTambunan/Proyek_Pengembangan_Aplikasi_Web.git" class="text-blue-500">Repo Web</a> |
+        <a href="https://github.com/Marchall-KevinTambunan/Pemrograman-Berbasis-Mobile.git" class="text-blue-500">Repo Mobile</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="p-6 max-w-4xl mx-auto bg-white my-6 rounded shadow">
+    <h2 class="text-2xl font-semibold mb-4">Keterampilan</h2>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Pemrograman Basic</span>
+      <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Penggunaan Linux & AWS</span>
+    </div>
+  </section>
+
+  <section class="p-6 max-w-4xl mx-auto bg-white my-6 rounded shadow text-center">
+    <h2 class="text-2xl font-semibold mb-4">Kontak</h2>
+    <p>Email: <a href="mailto:vinzv6124@gmail.com" class="text-blue-500">vinzv6124@gmail.com</a></p>
+  </section>
+
+  <script>
+    function tampilkanPesan() {
+      alert("Halo, saya Marchall Kevin Tambunan. Terima kasih telah mengunjungi CV saya!");
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
