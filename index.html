@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#2563eb"/>
   <title>CV - Marchall Kevin Tambunan</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon-192.png">
-  <meta name="theme-color" content="#2563eb">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+  <link rel="icon" href="icon-192.png"/>
+  <style>#installBtn { display: none; }</style>
 </head>
 <body class="bg-gray-100 text-gray-800">
+
   <header class="p-6 bg-white shadow">
     <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-6">
-      <img src="kevin.jpg" alt="Foto Marchall Kevin Tambunan" class="w-24 h-36 object-cover rounded shadow-md">
+      <img src="kevin.jpg" alt="Foto Marchall Kevin Tambunan" class="w-24 h-36 object-cover rounded shadow-md"/>
       <div class="text-center md:text-left mt-4 md:mt-0">
         <h1 class="text-4xl font-bold">Marchall Kevin Tambunan</h1>
         <p class="text-xl text-gray-600">Profesi / Jabatan</p>
@@ -48,7 +50,7 @@
     <h2 class="text-2xl font-semibold mb-4">Proyek</h2>
     <ul class="list-disc list-inside">
       <li><strong>Membangun Aplikasi Penjadwalan & Penyimpanan Data Warga</strong> – 
-        <a href="https://github.com/Marchall-KevinTambunan/Proyek_Pengembangan_Aplikasi_Web.git" class="text-blue-500">Repo Web</a> |
+        <a href="https://github.com/Marchall-KevinTambunan/Proyek_Pengembangan_Aplikasi_Web.git" class="text-blue-500">Repo Web</a> | 
         <a href="https://github.com/Marchall-KevinTambunan/Pemrograman-Berbasis-Mobile.git" class="text-blue-500">Repo Mobile</a>
       </li>
     </ul>
@@ -67,15 +69,44 @@
     <p>Email: <a href="mailto:vinzv6124@gmail.com" class="text-blue-500">vinzv6124@gmail.com</a></p>
   </section>
 
+  <section class="p-6 max-w-4xl mx-auto bg-white my-6 rounded shadow text-center">
+    <h2 class="text-2xl font-semibold mb-4">Install Aplikasi</h2>
+    <button id="installBtn" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+      Install Aplikasi Ini
+    </button>
+  </section>
+
   <script>
     function tampilkanPesan() {
       alert("Halo, saya Marchall Kevin Tambunan. Terima kasih telah mengunjungi CV saya!");
     }
+
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'inline-block';
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('Aplikasi berhasil diinstall');
+        } else {
+          console.log('Install dibatalkan');
+        }
+        deferredPrompt = null;
+      }
+    });
+
     if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log('SW registered'))
-      .catch(console.error);
+      navigator.serviceWorker.register('service-worker.js');
     }
   </script>
+
 </body>
 </html>
