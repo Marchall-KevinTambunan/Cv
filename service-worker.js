@@ -1,16 +1,19 @@
-self.addEventListener("install", (e) => {
+self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open("cv-kevin").then((cache) =>
+    caches.open('cv-cache').then((cache) =>
       cache.addAll([
-        "/",
-        "/index.html",
-        "/kevin.jpg",
-        "/manifest.json"
+        '/',
+        '/index.html',
+        '/manifest.json',
+        '/icon-192.png',
+        '/icon-512.png',
+        '/kevin.jpg'
       ])
     )
   );
 });
-self.addEventListener("fetch", (e) => {
+
+self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((res) => res || fetch(e.request))
   );
